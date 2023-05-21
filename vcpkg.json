@@ -1,0 +1,7 @@
+{
+    "name": "emscripten-wasm-template",
+    "version": "1.0.0",
+    "description": "Template to create a WASM library that can be used in your JavaScript code.",
+    "dependencies": [
+    ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>WebAssembly template</title>
+    <!-- WASM binary is loaded here and main() function runs immediately. -->
+    <script src="main.js"></script>
+    <script>
+        // Create function pointer, to make it easier to call it from js.
+        var a;
+        var b;
+        var add = Module.cwrap("add", "number", ["number", "number"], [a, b]);
+    </script>
+    <script>
+      function run_wasm() {
+        // Call the wrapped function, as it was a js function.
+        a = document.querySelector("#a").value;
+        b = document.querySelector("#b").value;
+        var answer = add(a, b);
+        document.querySelector("#answer").innerHTML=answer;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>WASM test page</h1>
+    <input type="number" id="a"> + <input type="number" id="b">
+    <button onclick=run_wasm()>=</button>
+    <p id="answer"></p>
+  </body>
+</html>
+
