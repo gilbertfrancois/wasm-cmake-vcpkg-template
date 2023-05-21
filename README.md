@@ -85,6 +85,21 @@ cmake --install build
 
 
 
+## Test
+
+To see the compiled output of the WebAssembly binary, run:
+
+```
+cd dist
+python -m httpd.server
+```
+
+Open a browser: `http://localhost:8000`. The console shows the printf() output of the ***int main()*** function at page load, the button triggers the ***int add(int a, int b)*** function.
+
+<img src="assets/images/screenshot.png" alt="screenshot" style="zoom:50%;" />
+
+
+
 ## References
 
 - [Emscripten with CMake](https://stunlock.gg/posts/emscripten_with_cmake/)
