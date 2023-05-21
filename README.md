@@ -6,7 +6,7 @@ _Gilbert Francois Duivesteijn_
 
 ## About
 
-This is a template that can act as starting point to create a javascrip web application, calling functions in WASM, made with the C programming language. The template uses:
+This is a template that can act as starting point to create a javascript web application, calling (library) functions in WebAssembly, made with the C programming language. The template uses:
 
 - *cmake* for building your binaries
 - *vcpkg* for C and C++ package management
@@ -94,9 +94,17 @@ cd dist
 python -m httpd.server
 ```
 
-Open a browser: `http://localhost:8000`. The console shows the printf() output of the ***int main()*** function at page load, the button triggers the ***int add(int a, int b)*** function.
+Open a browser: `http://localhost:8000`. The button triggers the ***int add(int a, int b)*** function, taking the inputs from the form.
 
 <img src="assets/images/screenshot.png" alt="screenshot" style="zoom:50%;" />
+
+
+
+
+
+
+
+
 
 
 
