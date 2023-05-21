@@ -19,7 +19,7 @@ if (DEFINED EMSCRIPTEN)
 	set_target_properties(main PROPERTIES COMPILE_FLAGS "-Os -s SIDE_MODULE=1 ")
 	set_target_properties(main PROPERTIES LINK_FLAGS    "-Os -s WASM=1 -s SIDE_MODULE=1 -s STANDALONE_WASM --no-entry")
 else()
-	add_library(main SHARED main.c)
+	add_library(main SHARED src/c/main.c)
 endif()
 
 install(TARGETS main DESTINATION ${CMAKE_SOURCE_DIR}/dist)
