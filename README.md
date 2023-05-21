@@ -48,7 +48,7 @@ Start here to setup the project:
 
 ```sh
 # Clone the template.
-git clone https://github.com/gilbertfrancois/emscripten-vcpkg-template.git
+git clone https://github.com/gilbertfrancois/wasm-cmake-vcpkg-template.git
 
 cd emscripten-vcpkg-template
 
