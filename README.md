@@ -94,11 +94,4 @@ Open a browser: `http://localhost:8000` and open the html files in the dist/ fol
 - [WebAssembly Tutorial](https://www.youtube.com/playlist?list=PLysLvOneEETPM_YbEyZcJ35_3pSdrj33O)
 - [sdl-canvas-wasm minimal example](https://github.com/timhutton/sdl-canvas-wasm)
 - [WebAssembly with SDL2 + sound](https://github.com/AlbertVeli/wasm_sdl2_test)
-
-
-
-## Steps to make C code WASM compatible
-
-- Adapt cmake
-- Adapt the main loop and call [void emscripten_set_main_loop_arg(em_arg_callback_func func, void *arg, int fps, int simulate_infinite_loop)](https://emscripten.org/docs/api_reference/emscripten.h.html#c.emscripten_set_main_loop_arg)  when compiling for wasm. 
-- 
+- [How to pass image frames camera to a function in wasm (C++)?](https://stackoverflow.com/questions/55845033/how-to-pass-image-frames-camera-to-a-function-in-wasm-c)
