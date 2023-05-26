@@ -2,25 +2,27 @@
 <html>
   <head>
     <title>WebAssembly template</title>
-    <script>
-      function run_wasm() {
-        WebAssembly.instantiateStreaming(
-          fetch("main.wasm"), {}
-        ).then(results => {
-          // Call the wrapped function, as it was a js function.
-          a = document.querySelector("#a").value;
-          b = document.querySelector("#b").value;
-          var answer = results.instance.exports.add(a, b);
-          document.querySelector("#answer").innerHTML=answer;
-        });
-      }
-    </script>
+    <script src="main.js"></script>
+    <!-- <script> -->
+    <!--   function run_wasm() { -->
+    <!--     WebAssembly.instantiateStreaming( -->
+    <!--       fetch("main.wasm"), {} -->
+    <!--     ).then(results => { -->
+    <!--       // Call the wrapped function, as it was a js function. -->
+    <!--       a = document.querySelector("#a").value; -->
+    <!--       b = document.querySelector("#b").value; -->
+    <!--       var answer = results.instance.exports.add(a, b); -->
+    <!--       document.querySelector("#answer").innerHTML=answer; -->
+    <!--     }); -->
+    <!--   } -->
+    <!-- </script> -->
   </head>
   <body>
-    <h1>WASM test page</h1>
-    <input type="number" id="a"> + <input type="number" id="b">
-    <button onclick=run_wasm()>=</button>
-    <p id="answer"></p>
+    main.wasm
+    <!-- <h1>WASM test page</h1> -->
+    <!-- <input type="number" id="a"> + <input type="number" id="b"> -->
+    <!-- <button onclick=run_wasm()>=</button> -->
+    <!-- <p id="answer"></p> -->
   </body>
 </html>
 

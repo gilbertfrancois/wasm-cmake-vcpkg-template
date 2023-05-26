@@ -113,3 +113,13 @@ Open a browser: `http://localhost:8000`. The button triggers the ***int add(int 
 - [Emscripten with CMake](https://stunlock.gg/posts/emscripten_with_cmake/)
 
 - [WebAssembly Tutorial](https://www.youtube.com/playlist?list=PLysLvOneEETPM_YbEyZcJ35_3pSdrj33O)
+- [sdl-canvas-wasm minimal example](https://github.com/timhutton/sdl-canvas-wasm)
+- [WebAssembly with SDL2 + sound](https://github.com/AlbertVeli/wasm_sdl2_test)
+
+
+
+## Steps to make C code WASM compatible
+
+- Adapt cmake
+- Adapt the main loop and call [void emscripten_set_main_loop_arg(em_arg_callback_func func, void *arg, int fps, int simulate_infinite_loop)](https://emscripten.org/docs/api_reference/emscripten.h.html#c.emscripten_set_main_loop_arg)  when compiling for wasm. 
+- 
