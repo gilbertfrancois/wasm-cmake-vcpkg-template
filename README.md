@@ -6,37 +6,26 @@ _Gilbert Francois Duivesteijn_
 
 ## About
 
-This is a template that can act as starting point to create a javascript web application, calling (library) functions in WebAssembly, made with the C programming language. The template uses:
+This is a template that can act as starting point to create native and/or webassembly applications, using:
 
-- *cmake* for building your binaries
-- *vcpkg* for C and C++ package management
-- *emscripten* for compiling to wasm
+- ***cmake*** for building your binaries
+- ***vcpkg*** for C and C++ package management, like for adding e.g. opencv, sdl2, etc.
+- ***emscripten*** for compiling to wasmWebAssembly
 
-```
-.
-├── 3rdparty
-│   ├── emsdk [for compiling to web assembly]
-│   └── vcpkg [for C package management]
-├── CMakeLists.txt
-├── dist      [built artefacts]
-├── src
-│   ├── cc    [C source files]
-│   ├── html  [html source files]
-│   └── ...
-└── vcpkg.json [for C package management]
-```
+This repository has a set of the smallest possible projects to get started with the build tools in place. See 
+
 
 
 
 ## First time project setup (macOS, Linux)
 
-On Linux, run first:
+On Linux (Ubuntu, Debian), run first:
 
 ```sh
 sudo apt install -y nodejs cmake ninja-build gcc build-essential git zip unzip curl
 ```
 
-If running on Linux ARM, set the environment variable:
+On Linux ARM, set the environment variable:
 
 ```sh
 export VCPKG_FORCE_SYSTEM_BINARIES=arm
@@ -44,13 +33,13 @@ export VCPKG_FORCE_SYSTEM_BINARIES=arm
 
 
 
-Start here to setup the project:
+On all systems, run:
 
 ```sh
 # Clone the template.
 git clone https://github.com/gilbertfrancois/wasm-cmake-vcpkg-template.git
 
-cd emscripten-vcpkg-template
+cd wasm-cmake-vcpkg-template
 
 # Important! Clone and init subrepositories.
 git submodule update --init --recursive
@@ -61,7 +50,7 @@ git submodule update --init --recursive
 
 
 
-## Compile C
+## Compile C programs for desktop
 
 ```sh
 cmake -S . -B build
@@ -71,14 +60,14 @@ cmake --install build
 
 
 
-## Compile WASM
+## Compile C programs for the web
 
 ```sh
-# Activate the emscripten environment and set paths.
+# Important! Activate the emscripten environment and set paths.
 ./3rdparty/emsdk/emsdk activate latest
 source 3rdparty/emsdk/emsdk_env.sh
 
-cmake -S . -B build -DWITH_WASM=true
+cmake -S . -B build -DWASM=true
 cmake --build build
 cmake --install build
 ```
@@ -91,20 +80,10 @@ To see the compiled output of the WebAssembly binary, run:
 
 ```
 cd dist
-python -m httpd.server
+python -m http.server
 ```
 
-Open a browser: `http://localhost:8000`. The button triggers the ***int add(int a, int b)*** function, taking the inputs from the form.
-
-<img src="assets/images/screenshot.png" alt="screenshot" style="zoom:50%;" />
-
-
-
-
-
-
-
-
+Open a browser: `http://localhost:8000` and open the html files in the dist/ folder.
 
 
 

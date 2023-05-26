@@ -1,0 +1,15 @@
+set(target_name main_library)
+
+if(DEFINED EMSCRIPTEN)
+  add_executable(${target_name} src/c/main.c)
+  set(CMAKE_EXECUTABLE_SUFFIX ".wasm")
+  set_target_properties(${target_name} PROPERTIES COMPILE_FLAGS "-Os -s SIDE_MODULE=1 ")
+  set_target_properties(${target_name} PROPERTIES LINK_FLAGS "-Os -s WASM=1 -s SIDE_MODULE=1 -s STANDALONE_WASM --no-entry")
+else()
+  add_library(${target_name} SHARED src/c/main.c)
+endif()
+
+install(TARGETS ${target_name} DESTINATION ${CMAKE_SOURCE_DIR}/dist)
+if(DEFINED EMSCRIPTEN)
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/html/${target_name}.html DESTINATION ${CMAKE_SOURCE_DIR}/dist)
+endif()

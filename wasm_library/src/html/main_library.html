@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>wasm :: library</title>
+    <script>
+      function run_wasm() {
+        WebAssembly.instantiateStreaming(
+          fetch("main_library.wasm"), {}
+        ).then(lib => {
+          // Call the wrapped function, as it was a js function.
+          a = document.querySelector("#a").value;
+          b = document.querySelector("#b").value;
+          var answer = lib.instance.exports.add(a, b);
+          document.querySelector("#answer").innerHTML=answer;
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>WASM test page</h1>
+    <input type="number" id="a"> + <input type="number" id="b">
+    <button onclick=run_wasm()>=</button>
+    <p id="answer"></p>
+  </body>
+</html>
