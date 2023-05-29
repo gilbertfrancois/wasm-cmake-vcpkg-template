@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>wasm :: export from js</title>
+        <title>wasm :: Call JS function in C</title>
         <script>
             var exports;
             WebAssembly.instantiateStreaming(
-                fetch("main_export_from_js.wasm"),
+                fetch("call_js_fn_in_c.wasm"),
                 {
                     env: {
                         js_myfunction: js_myfunction,
@@ -26,7 +26,7 @@
         </script>
     </head>
     <body>
-        <h1>WASM export from JavaScript</h1>
+        <h1>Call JS function in C</h1>
         <p>Demonstrates how to export a JavaScript function to WASM.</p>
         <p />
         <div>

@@ -9,7 +9,7 @@
                 0,
             );
             var exports;
-            WebAssembly.instantiateStreaming(fetch("main_memory.wasm"), {
+            WebAssembly.instantiateStreaming(fetch("memory.wasm"), {
                 js: { mem: memory },
             }).then((lib) => {
                 exports = lib.instance.exports;
@@ -42,7 +42,7 @@
         </script>
     </head>
     <body>
-        <h1>WASM memory</h1>
+        <h1>memory</h1>
         <p>Demonstrates how to send and receive a block of memory in WASM.</p>
         <div>
             <button onclick="send_buffer_to_wasm()">Calculate sum</button>

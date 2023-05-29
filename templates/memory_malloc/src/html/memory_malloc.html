@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>wasm :: memory</title>
+        <title>wasm :: memory malloc</title>
         <script>
             var memory = new WebAssembly.Memory({ initial: 256, maximum: 512 });
             var exports;
-            WebAssembly.instantiateStreaming(fetch("main_memory_malloc.wasm"), {
+            WebAssembly.instantiateStreaming(fetch("memory_malloc.wasm"), {
                 js: {
                     mem: memory,
                 },
@@ -21,7 +21,8 @@
 
             function send_buffer_to_wasm() {
                 var size = 10;
-                var buffer_ptr = exports.wasm_malloc(size * 4);
+                var uint32_t_size = 4;
+                var buffer_ptr = exports.wasm_malloc(size * uint32_t_size);
                 console.log("buffer_ptr: ", buffer_ptr);
                 var arr = new Uint32Array(memory.buffer, buffer_ptr, size);
                 for (var i = 0; i < size; i++) {
@@ -48,7 +49,7 @@
         </script>
     </head>
     <body>
-        <h1>WASM memory</h1>
+        <h1>memory malloc</h1>
         <p>Demonstrates how to send and receive a block of memory in WASM.</p>
         <div>
             <button onclick="send_buffer_to_wasm()">Calculate sum</button>

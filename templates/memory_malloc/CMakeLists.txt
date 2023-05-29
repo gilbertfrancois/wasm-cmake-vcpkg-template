@@ -1,4 +1,4 @@
-set(target_name main_memory_malloc)
+set(target_name memory_malloc)
 
 if(DEFINED EMSCRIPTEN)
   add_executable(${target_name} src/c/main.c)

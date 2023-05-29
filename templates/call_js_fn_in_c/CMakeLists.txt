@@ -1,4 +1,4 @@
-set(target_name main_export_from_js)
+set(target_name call_js_fn_in_c)
 
 # No native C support for now, since it does not have an external JS function to link to.
 

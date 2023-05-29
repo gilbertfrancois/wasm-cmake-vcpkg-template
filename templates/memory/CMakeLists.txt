@@ -1,4 +1,4 @@
-set(target_name main_memory)
+set(target_name memory)
 
 if(DEFINED EMSCRIPTEN)
   add_executable(${target_name} src/c/main.c)
@@ -7,11 +7,13 @@ else()
   add_library(${target_name} SHARED src/c/main.c)
 endif()
 
-install(TARGETS ${target_name} DESTINATION ${CMAKE_SOURCE_DIR}/dist)
 if(DEFINED EMSCRIPTEN)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${target_name}.wasm DESTINATION ${CMAKE_SOURCE_DIR}/dist)
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/html/${target_name}.html DESTINATION ${CMAKE_SOURCE_DIR}/dist)
+else()
+  install(TARGETS ${target_name} DESTINATION ${CMAKE_SOURCE_DIR}/dist)
 endif()
+
 # if(DEFINED EMSCRIPTEN)
 #   add_executable(${target_name} src/c/main.c)
 #   set(CMAKE_EXECUTABLE_SUFFIX ".wasm")
