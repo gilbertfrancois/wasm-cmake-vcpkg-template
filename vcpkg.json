@@ -1,7 +1,7 @@
 {
-    "name": "emscripten-wasm-template",
+    "name": "webassembly-cookbook",
     "version": "1.0.0",
-    "description": "Template to create a WASM library that can be used in your JavaScript code.",
+    "description": "Minimal project templates for C and WebAssembly development.",
     "dependencies": [
     ]
 }
