@@ -6,11 +6,11 @@ _Gilbert Francois Duivesteijn_
 
 ## About
 
-This is a template that can act as starting point to create native and/or webassembly applications, using:
+This is a template that can act as starting point to create native and/or WebAssembly (WASM) applications, using:
 
-- ***cmake*** for building your binaries
+- ***cmake*** for building your binaries.
 - ***vcpkg*** for C and C++ package management, like for adding e.g. opencv, sdl2, etc.
-- ***emscripten*** for compiling to wasmWebAssembly
+- ***emscripten*** for compiling to WASM.
 
 This repository has a set of the smallest possible projects to get started with the build tools in place.
 
@@ -18,12 +18,12 @@ This repository has a set of the smallest possible projects to get started with 
 
 ## Templates
 
-- **run once**: Call the _int main()_ function from the WASM binary and exit the program.
-- **main loop**: An infinite main loop runs in C a bit different than in WebAssembly. In C, one can use a _while(true) {}_ loop, in wasm, we have to let the browser take care of the loop.
-- **library**: Create a WASM library and call the C functions from JavaScript.
-- **memory**: How to give a JavaScript array to WASM and back, using the WASM heap.
-- **memory malloc**: How to give a JavaScript array to WASM and back, using _malloc_ and _free_ from C.
-- **export from js**: Call a JavaScript function inside your C program. 
+- **main run once**: Call the `int main()` function from the WASM binary and exit the program.
+- **main loop**: An infinite main loop runs in C a bit different than in WASM. In C, one can use a `while(true) {}` loop, in WASM, we have to let the browser take care of the loop.
+- **call C function in JS**: Create a WASM library and call the C functions from JS.
+- **call JS function in C**: Call a JS function inside your C program, using the `extern ...` keyword.
+- **memory**: How to give a JS array to WASM and back, using the WASM heap.
+- **memory malloc**: How to give a JS array to WASM and back, using `malloc` and `free` from C.
 
 
 
@@ -86,7 +86,7 @@ cmake --install build
 
 ## Test
 
-To see the compiled output of the WebAssembly binary, run:
+To see the compiled output of the WASM binary, run:
 
 ```
 cd dist
