@@ -6,11 +6,13 @@
             var memory = new WebAssembly.Memory({ initial: 256, maximum: 512 });
             var exports;
             WebAssembly.instantiateStreaming(fetch("main_memory_malloc.wasm"), {
-                js: { 
-                    mem: memory 
+                js: {
+                    mem: memory,
                 },
                 env: {
-                    emscripten_resize_heap: function(delta) { memory.grow(delta); },
+                    emscripten_resize_heap: function (delta) {
+                        memory.grow(delta);
+                    },
                 },
             }).then((lib) => {
                 exports = lib.instance.exports;

@@ -4,11 +4,14 @@
         <title>wasm :: export from js</title>
         <script>
             var exports;
-            WebAssembly.instantiateStreaming(fetch("main_export_from_js.wasm"), {
-                env: {
-                    js_myfunction: js_myfunction,
+            WebAssembly.instantiateStreaming(
+                fetch("main_export_from_js.wasm"),
+                {
+                    env: {
+                        js_myfunction: js_myfunction,
+                    },
                 },
-            }).then((lib) => {
+            ).then((lib) => {
                 exports = lib.instance.exports;
             });
 
@@ -20,12 +23,12 @@
                 var time = exports.wasm_myfunction();
                 document.querySelector("#answer").innerHTML = time;
             }
-
         </script>
     </head>
     <body>
         <h1>WASM export from JavaScript</h1>
-        <p>Demonstrates how to export a JavaScript function to WASM.<p/>
+        <p>Demonstrates how to export a JavaScript function to WASM.</p>
+        <p />
         <div>
             <button onclick="wasm_myfunction()">get number</button>
             <p id="answer"></p>

@@ -4,10 +4,13 @@
         <title>wasm :: memory</title>
         <script>
             var memory = new WebAssembly.Memory({ initial: 256, maximum: 512 });
-            var stack_pointer = new WebAssembly.Global({ value: "i32", mutable: true }, 0);
+            var stack_pointer = new WebAssembly.Global(
+                { value: "i32", mutable: true },
+                0,
+            );
             var exports;
             WebAssembly.instantiateStreaming(fetch("main_memory.wasm"), {
-                js: { mem: memory, },
+                js: { mem: memory },
             }).then((lib) => {
                 exports = lib.instance.exports;
                 memory = lib.instance.exports.memory;
