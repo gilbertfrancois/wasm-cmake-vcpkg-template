@@ -1,4 +1,4 @@
-# WebAssembly with cmake and vcpkg template
+# WebAssembly Cookbook
 
 _Gilbert Francois Duivesteijn_
 
@@ -12,8 +12,18 @@ This is a template that can act as starting point to create native and/or webass
 - ***vcpkg*** for C and C++ package management, like for adding e.g. opencv, sdl2, etc.
 - ***emscripten*** for compiling to wasmWebAssembly
 
-This repository has a set of the smallest possible projects to get started with the build tools in place. See 
+This repository has a set of the smallest possible projects to get started with the build tools in place.
 
+
+
+## Templates
+
+- **run once**: Call the _int main()_ function from the WASM binary and exit the program.
+- **main loop**: An infinite main loop runs in C a bit different than in WebAssembly. In C, one can use a _while(true) {}_ loop, in wasm, we have to let the browser take care of the loop.
+- **library**: Create a WASM library and call the C functions from JavaScript.
+- **memory**: How to give a JavaScript array to WASM and back, using the WASM heap.
+- **memory malloc**: How to give a JavaScript array to WASM and back, using _malloc_ and _free_ from C.
+- **export from js**: Call a JavaScript function inside your C program. 
 
 
 
@@ -80,7 +90,7 @@ To see the compiled output of the WebAssembly binary, run:
 
 ```
 cd dist
-python -m http.server
+python -m http.server 8000
 ```
 
 Open a browser: `http://localhost:8000` and open the html files in the dist/ folder.
